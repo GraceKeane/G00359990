@@ -1,0 +1,13 @@
+page-trailers {
+    //background class displays the color 
+    .background{
+        background: linear-gradient(to top, white 0%, #d9d9d9 100%);
+      }
+    //class to align everything to the center
+    .vertical-align-content > *
+    {
+      display: flex!important;
+      align-content: center!important;
+      align-items: center!important;
+    }
+}

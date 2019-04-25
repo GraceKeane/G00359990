@@ -1,3 +1,16 @@
 page-home {
 
+    //background class displays what color background
+    //I used light grey and white mixture
+    .background{
+      background: linear-gradient(to top, white 0%, #d9d9d9 100%);
+    }
+
+    //this class alignes writing and buttons to the center
+    .vertical-align-content > *
+    {
+      display: flex!important;
+      align-content: center!important;
+      align-items: center!important;
+    }
 }

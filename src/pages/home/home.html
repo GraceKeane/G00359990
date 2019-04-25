@@ -1,14 +1,75 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+      <ion-title>
+        Movies
+      </ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-content text-center class="vertical-align-content">
+  
+    <ion-content padding>
+   
+      <ion-item>
+        <ion-label>Please enter your name: </ion-label>
+        <!--two way data binding-->
+        <ion-input [(ngModel)] = "myVariable"></ion-input>
+      </ion-item>
+
+      <!--greeting message + name entered by the user-->
+      <ion-label><b>Hello and welcome to the app {{myVariable}}!</b></ion-label>
+      <br>
+      <h3><i>Cant find the movie you're looking for? This app will show you every movie related to your search! </i></h3>
+  
+      <!--class background is establishing the color-->
+    <ion-content padding class="background">
+    
+      <!--two way data binding-->
+      <h2>{{name}}</h2>
+        <ion-input [(ngModel)]="name" placeholder="Input move title"></ion-input>
+        <button ion-button (click)="search()" round>Search</button>
+
+      <ion-list>
+        <!--Reading JSON Data from an external URL-->
+        <ion-item *ngFor="let movie of movies">
+        <ion-thumbnail item-start>
+          <!--searching for the poster online-->
+          <img src={{movie.Poster}}>
+        </ion-thumbnail>
+        
+        <!--displaying the title and the year-->
+        <h2>{{movie.Title}}</h2>
+        <p>{{movie.Year}}</p>
+        <!--  <button ion-button (click)="view(movie.Poster)" clear item-end>View</button> -->
+      </ion-item>
+    </ion-list>
+
+    <!--when button is pressed it then brings the user to the trailers page-->
+    <!--uses NavController-->
+    <button ion-button (click) = "openTrailersPage()"> Go to trailers</button>
+    <br>
+  
+  <ion-content padding>
+    
+    <!--feedback option-->
+    <!--feedback is then stored in local storage-->
+    <ion-item>
+      <ion-input [(ngModel)]="inputText" placeholder= "Feel free to give feedback on this app"></ion-input>
+    </ion-item>
+    
+    <br>
+    <!--submitFeedback = reades and saves the data-->
+    <button ion-button (click)="submitFeedback()">Submit Feedback</button>
+    <!--loadFeedback = loads the data that the user entered to the console window-->
+    <button ion-button (click)="loadFeedback()"> Load Feedback</button>
+    
+    <br>
+  
+    <!-- <button ion-button (click)= "playVideo()">Play video</button> -->
+     
+      </ion-content>
+    </ion-content>
+  </ion-content>
 </ion-content>
+
+  
